@@ -16,6 +16,8 @@ public class OpenCSV_Writedata {
         String csvFile = currentPath + File.separator + "resources" + File.separator + "CredentialDetails.csv";
 
         // Example data to write to the CSV
+        
+        //UserName,Password,Name,Surname,Email,Role
         String[] header = {"UserLogin", "UserPassword", "Role","UserName","Email"};
         String[] data1 = {"Cg", "eweww", "ADMIN","wrqwrqwr","wqrqwwqr"};
      //   String[] data2 = {"user", "user123", "USER","qwrqwrqwr","qwrqwrqr"};

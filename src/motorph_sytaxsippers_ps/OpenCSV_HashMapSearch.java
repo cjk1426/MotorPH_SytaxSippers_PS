@@ -1,6 +1,7 @@
 
 
-//emprove search Data structure algo
+
+//implementation of search Data structure algorithm in opencsv
 
 package motorph_sytaxsippers_ps;
 
