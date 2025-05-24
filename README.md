@@ -1,0 +1,5 @@
+Current System Overview
+MotorPH currently relies on manual processes for payroll and inventory management, using Excel spreadsheets to record employee details, attendance, and salary computations. HR and supervisors handle approvals for attendance, leave, and overtime manually, leading to several operational challenges. The existing system is time-consuming, slowing down payroll processing and approvals, and is prone to human errors in calculations and record-keeping. Additionally, its limited scalability hinders the company's planned expansion, while the lack of real-time insights delays reporting and decision-making due to manual data aggregation. To address these issues, MotorPH plans to implement an automated system that will enhance efficiency, accuracy, and scalability, ensuring seamless operations and supporting the company's growth ambitions.
+
+Proposed System Overview
+The proposed MotorPH Payroll System is an automated solution designed to address the inefficiencies and limitations of the current manual processes. It aims to streamline payroll and inventory management, ensuring accuracy, compliance, and scalability as the company grows.
