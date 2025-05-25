@@ -1,11 +1,10 @@
 package motorph_sytaxsippers_ps;
 
 import com.opencsv.CSVReader;
-import com.opencsv.CSVWriter;
+
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+
 
 public class OpenCSVtest {
 

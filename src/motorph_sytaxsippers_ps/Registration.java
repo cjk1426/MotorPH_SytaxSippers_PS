@@ -3,6 +3,8 @@ package motorph_sytaxsippers_ps;
 import java.io.File;
 import javax.swing.JOptionPane;
 import static motorph_sytaxsippers_ps.OpenCSV_Writedata.writeToCSV;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class Registration extends javax.swing.JFrame {
 
@@ -263,9 +265,16 @@ public class Registration extends javax.swing.JFrame {
             return; // Exit the method
         }
 
+            // Hash the password
+    String passwordHash = hashPassword(password);
+    if (passwordHash == null) {
+        JOptionPane.showMessageDialog(null, "Error hashing the password. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+        return; // Exit the method
+    }
+        
         // Prepare data to write if all validations pass
         // naka default muna sa super admin
-        String[] data1 = {username, password, name, surname, email, "SuperAdmin"};
+        String[] data1 = {username, passwordHash, name, surname, email, "SuperAdmin"};
 
         // Write to the CSV file
         writeToCSV(csvFile, header, data1);
@@ -286,6 +295,24 @@ public class Registration extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    
+    
+    // Method to hash a password using SHA-256
+private String hashPassword(String password) {
+    try {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        byte[] hashBytes = md.digest(password.getBytes());
+        StringBuilder hashString = new StringBuilder();
+        for (byte b : hashBytes) {
+            hashString.append(String.format("%02x", b));
+        }
+        return hashString.toString();
+    } catch (NoSuchAlgorithmException e) {
+        e.printStackTrace();
+        return null;
+    }
+}
+    
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
 
