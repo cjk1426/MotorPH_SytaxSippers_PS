@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 
 
+
 public class OpenCSVtest {
 
     public static void main(String[] args) {
@@ -23,6 +24,11 @@ public class OpenCSVtest {
                     System.out.print(value + " ");
                 }
                 System.out.println();
+                
+               // List<String[]> alldata = reader.readAll();
+                
+                    
+                
             }
         } catch (Exception e) {
             e.printStackTrace();

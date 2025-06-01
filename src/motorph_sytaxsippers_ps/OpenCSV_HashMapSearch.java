@@ -27,7 +27,7 @@ public class OpenCSV_HashMapSearch {
         HashMap<String, String[]> csvData = preprocessCSV(csvFile);
 
         // Search for a specific username
-        String searchUsername = "Cg";
+        String searchUsername = "CG";
         searchInData(csvData, searchUsername);
         
     }
@@ -72,5 +72,14 @@ public class OpenCSV_HashMapSearch {
         } else {
             System.out.println("No match found for username: " + searchUsername);
         }
+       
     }
+    
+    
+            public static String[] searchInDataNew(HashMap<String, String[]> dataMap, String searchUsername) {
+            if (dataMap.containsKey(searchUsername)) {
+                return dataMap.get(searchUsername); // Return the user's row if found
+            }
+            return null; // Return null if the username is not found
+        }
 }
