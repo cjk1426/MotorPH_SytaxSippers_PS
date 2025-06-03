@@ -224,7 +224,7 @@
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/motorph_sytaxsippers_ps/mot.png"/>
+              <Image iconType="3" name="/Resources/mot.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel5"/>
           </Properties>
@@ -234,7 +234,7 @@
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/motorph_sytaxsippers_ps/Logo2.png"/>
+          <Image iconType="3" name="/Resources/Logo2.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -244,6 +244,11 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Resources/Logo1-removebg-preview.png"/>
+        </Property>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="90" y="10" width="190" height="60"/>
@@ -253,7 +258,7 @@
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/motorph_sytaxsippers_ps/MotorPH Background.png"/>
+          <Image iconType="3" name="/Resources/MotorPH Background.png"/>
         </Property>
       </Properties>
       <Constraints>

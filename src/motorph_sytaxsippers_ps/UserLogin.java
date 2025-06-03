@@ -100,7 +100,7 @@ public class UserLogin extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/motorph_sytaxsippers_ps/mot.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/mot.png"))); // NOI18N
         jLabel5.setText("jLabel5");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -156,11 +156,13 @@ public class UserLogin extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 560, 380));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/motorph_sytaxsippers_ps/Logo2.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Logo2.png"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 60, 60));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Logo1-removebg-preview.png"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 190, 60));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/motorph_sytaxsippers_ps/MotorPH Background.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/MotorPH Background.png"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 570));
 
         pack();
