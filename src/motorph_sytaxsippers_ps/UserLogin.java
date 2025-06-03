@@ -156,7 +156,7 @@ public class UserLogin extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 560, 380));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Logo2.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Logo2-removebg-preview.png"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 60, 60));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Logo1-removebg-preview.png"))); // NOI18N
