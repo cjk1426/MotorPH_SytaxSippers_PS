@@ -284,23 +284,29 @@ public class UserLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCbx_CredentialActionPerformed
 
-    
     public void scaleImage() {
-        ImageIcon icon = new ImageIcon ("C:\\Users\\admin\\Downloads\\Logo2-removebg-preview.png");
+
+        String currentPath = System.getProperty("user.dir");
+        String myimgiconPath = currentPath + File.separator + "src" + File.separator + "Resources" + File.separator + "Logo2-removebg-preview.png";
+        ImageIcon icon = new ImageIcon(myimgiconPath);
+
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         jLabel6.setIcon(scaledIcon);
     }
-    
+
     public void scaleImage1() {
-        ImageIcon icon = new ImageIcon ("C:\\Users\\admin\\Downloads\\Logo1-removebg-preview.png");
+
+        String currentPath = System.getProperty("user.dir");
+        String myimgiconPath = currentPath + File.separator + "src" + File.separator + "Resources" + File.separator + "Logo1-removebg-preview.png";
+        ImageIcon icon = new ImageIcon(myimgiconPath);
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(jLabel8.getWidth(), jLabel8.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         jLabel8.setIcon(scaledIcon);
     }
-    
+
     /**
      * @param args the command line arguments
      */

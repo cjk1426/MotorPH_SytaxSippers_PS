@@ -1,13 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package motorph_sytaxsippers_ps;
 
-/**
- *
- * @author cj
- */
+import com.opencsv.CSVReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 public class AdminUserInterface extends javax.swing.JFrame {
 
     /**
@@ -26,42 +26,229 @@ public class AdminUserInterface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jBtn_OpenEmpDetails = new javax.swing.JButton();
+        jBtn_ShowAddEmp = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTable1.setShowGrid(true);
+        jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("EMPLOYEE PAYROLL ADMINISTRATOR");
 
         jButton1.setText("CLOSE");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jBtn_OpenEmpDetails.setText("VIEW EMPLOYEE");
+        jBtn_OpenEmpDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_OpenEmpDetailsActionPerformed(evt);
+            }
+        });
+
+        jBtn_ShowAddEmp.setText("ADD EMPLOYEE");
+        jBtn_ShowAddEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_ShowAddEmpActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel1)
-                .addContainerGap(172, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(57, 57, 57))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jBtn_OpenEmpDetails)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jBtn_ShowAddEmp)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 345, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(23, 23, 23))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBtn_OpenEmpDetails)
+                    .addComponent(jBtn_ShowAddEmp)
+                    .addComponent(jButton1))
+                .addGap(49, 49, 49))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+
+        String currentPath = System.getProperty("user.dir");
+        String csvFile = currentPath + File.separator + "resources" + File.separator + "MotorPHEmployeeData-EmployeeDetails.csv";
+
+        try (CSVReader reader = new CSVReader(new FileReader(csvFile))) {
+            // Read all data from the CSV file
+            List<String[]> allData = reader.readAll();
+
+            if (!allData.isEmpty()) {
+                // Assuming jTable1 is the JTable in your form (declared in the GUI designer)
+                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+                // Identify desired columns by their names
+                String[] originalHeaders = allData.get(0);
+                String[] desiredHeaders = {"Employee #", "Last Name", "First Name", "SSS #", "Philhealth #", "TIN #", "Pag-ibig #"};
+                int[] desiredIndices = new int[desiredHeaders.length];
+
+                // Map desired column indices
+                for (int i = 0; i < desiredHeaders.length; i++) {
+                    desiredIndices[i] = -1;
+                    for (int j = 0; j < originalHeaders.length; j++) {
+                        if (originalHeaders[j].equalsIgnoreCase(desiredHeaders[i])) {
+                            desiredIndices[i] = j;
+                            break;
+                        }
+                    }
+                    if (desiredIndices[i] == -1) {
+                        throw new IllegalArgumentException("Column '" + desiredHeaders[i] + "' not found in CSV file.");
+                    }
+                }
+
+                // Set table headers
+                model.setColumnIdentifiers(desiredHeaders);
+
+                // Add rows with only desired columns
+                for (int i = 1; i < allData.size(); i++) {
+                    String[] row = allData.get(i);
+                    String[] filteredRow = new String[desiredHeaders.length];
+                    for (int j = 0; j < desiredIndices.length; j++) {
+                        filteredRow[j] = row[desiredIndices[j]];
+                    }
+                    model.addRow(filteredRow);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error loading table data.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jBtn_OpenEmpDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_OpenEmpDetailsActionPerformed
+
+
+            // Need to select from the jtable first
+    int selectedRow = jTable1.getSelectedRow();
+    if (selectedRow == -1) {
+        // No row is selected; show a message box
+        JOptionPane.showMessageDialog(this, "Please select an employee from the table before proceeding.", "Selection Required", JOptionPane.WARNING_MESSAGE);
+        return; 
+    }
+    
+    
+    // Get employee data from the selected row - FOR UPDATE
+    String empNumber = (String) jTable1.getValueAt(selectedRow, 0); // Employee number (Column 0)
+    String empLastName = (String) jTable1.getValueAt(selectedRow, 1); // Last Name (Column 1)
+    String empFirstName = (String) jTable1.getValueAt(selectedRow, 2); // First Name (Column 2)
+
+    
+        // Open GUI employee full details as a modal lang muna like VBA
+        AdminUserInterface_EmployeeDetails adminEmpDetails = new AdminUserInterface_EmployeeDetails();
+            
+       // adminEmpDetails.jLabel.value = empNumber     
+        
+        // Disable the adminUI
+        this.setEnabled(false);
+
+        // if the EmployeeDetails close then enable the admin UI
+        adminEmpDetails.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                // Re-enable the main form
+                setEnabled(true);
+            }
+
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                // Re-enable the main form when the new window is closed
+                setEnabled(true);
+            }
+        });
+
+        // Make the new form visible
+        adminEmpDetails.setVisible(true);
+
+    }//GEN-LAST:event_jBtn_OpenEmpDetailsActionPerformed
+
+    private void jBtn_ShowAddEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_ShowAddEmpActionPerformed
+        // 
+        
+               // Open GUI employee full details as a modal lang muna like VBA
+        AdminUserInterface_AddEmployee adminAddEmpDetails = new AdminUserInterface_AddEmployee();
+            
+       // adminEmpDetails.jLabel.value = empNumber     
+        
+        // Disable the adminUI
+        this.setEnabled(false);
+
+        // if the EmployeeDetails close then enable the admin UI
+        adminAddEmpDetails.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                // Re-enable the main form
+                setEnabled(true);
+            }
+
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent e) {
+                // Re-enable the main form when the new window is closed
+                setEnabled(true);
+            }
+        });
+
+        // Make the new form visible
+        adminAddEmpDetails.setVisible(true);
+
+        
+    }//GEN-LAST:event_jBtn_ShowAddEmpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -99,7 +286,11 @@ public class AdminUserInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtn_OpenEmpDetails;
+    private javax.swing.JButton jBtn_ShowAddEmp;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
