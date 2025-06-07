@@ -4,10 +4,14 @@
  */
 package motorph_sytaxsippers_ps;
 
-/**
- *
- * @author cj
- */
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
+import java.io.File;
+import static motorph_sytaxsippers_ps.OpenCSV_Writedata.writeToCSV;
+
+
+
+
 public class AdminUserInterface_AddEmployee extends javax.swing.JFrame {
 
     /**
@@ -17,6 +21,13 @@ public class AdminUserInterface_AddEmployee extends javax.swing.JFrame {
         initComponents();
     }
 
+        public void close() {
+
+        WindowEvent winClosingEvent = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
+
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,11 +40,19 @@ public class AdminUserInterface_AddEmployee extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jText_EmpNum = new javax.swing.JTextField();
+        jText_Fname = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jTextLname = new javax.swing.JTextField();
+        jBtn_WriteData = new javax.swing.JButton();
+        jText_SSS = new javax.swing.JTextField();
+        jText_PhilHealth = new javax.swing.JTextField();
+        jText_TIN = new javax.swing.JTextField();
+        jText_PAGIBIG = new javax.swing.JTextField();
+        jLbl_SSSnum = new javax.swing.JLabel();
+        jLbl_PhilHealth = new javax.swing.JLabel();
+        jLbl_TIN = new javax.swing.JLabel();
+        jLbl_PagIbig = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -45,15 +64,28 @@ public class AdminUserInterface_AddEmployee extends javax.swing.JFrame {
 
         jLabel2.setText("Employee Fisrt Name:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jText_EmpNum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jText_EmpNumActionPerformed(evt);
             }
         });
 
         jLabel4.setText("Employee Last Name:");
 
-        jButton1.setText("Submit");
+        jBtn_WriteData.setText("Submit");
+        jBtn_WriteData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_WriteDataActionPerformed(evt);
+            }
+        });
+
+        jLbl_SSSnum.setText("SSS NUMBER:");
+
+        jLbl_PhilHealth.setText("PHILHEALTH NUMBER:");
+
+        jLbl_TIN.setText("TIN NUMBER:");
+
+        jLbl_PagIbig.setText("PAGIBIG NUMBER:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -63,55 +95,120 @@ public class AdminUserInterface_AddEmployee extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(72, 72, 72)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jText_EmpNum)
+                                    .addComponent(jText_Fname)
+                                    .addComponent(jTextLname, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(274, 274, 274)
+                                .addComponent(jBtn_WriteData))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLbl_TIN, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLbl_PagIbig, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLbl_SSSnum, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLbl_PhilHealth, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jText_SSS)
+                                    .addComponent(jText_PhilHealth)
+                                    .addComponent(jText_TIN)
+                                    .addComponent(jText_PAGIBIG, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
+                        .addGap(110, 110, 110)
                         .addComponent(jLabel3)))
                 .addContainerGap(44, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(54, 54, 54))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jText_EmpNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jText_Fname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextLname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jText_SSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLbl_SSSnum))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(3, 3, 3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(40, 40, 40))
+                    .addComponent(jText_PhilHealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLbl_PhilHealth))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLbl_TIN)
+                    .addComponent(jText_TIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLbl_PagIbig)
+                    .addComponent(jText_PAGIBIG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jBtn_WriteData)
+                .addGap(35, 35, 35))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jText_EmpNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_EmpNumActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jText_EmpNumActionPerformed
+
+    private void jBtn_WriteDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_WriteDataActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+               // Get the current path for the CSV file
+        String currentPath = System.getProperty("user.dir");
+        String csvFile = currentPath + File.separator + "resources" + File.separator + "EmployeeDetails_AdminView.csv";
+
+        // Example data to write to the CSV
+        String[] header = {"Employee #","Last Name","First Name","SSS #","Philhealth #","TIN #","Pag-ibig #"};
+
+            
+                 String empNum =   jText_EmpNum.getText();
+                 String firstName =  jText_Fname.getText();
+                 String Lname = jTextLname.getText();
+                 String SSSnum = jText_SSS.getText();
+                 String PhiLhealth = jText_PhilHealth.getText();
+                 String tinNo = jText_TIN.getText();
+                 String PagibigNo = jText_PAGIBIG.getText();
+
+
+                String[] data1 = {empNum, Lname, firstName,SSSnum , PhiLhealth, tinNo, PagibigNo};
+
+
+        // Write to the CSV file
+        writeToCSV(csvFile, header, data1);
+
+        // Retrieve input values
+
+   //    AdminUserInterface.refreshjtable();//reload again the data
+         close();
+    }//GEN-LAST:event_jBtn_WriteDataActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,13 +246,21 @@ public class AdminUserInterface_AddEmployee extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jBtn_WriteData;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel jLbl_PagIbig;
+    private javax.swing.JLabel jLbl_PhilHealth;
+    private javax.swing.JLabel jLbl_SSSnum;
+    private javax.swing.JLabel jLbl_TIN;
+    private javax.swing.JTextField jTextLname;
+    private javax.swing.JTextField jText_EmpNum;
+    private javax.swing.JTextField jText_Fname;
+    private javax.swing.JTextField jText_PAGIBIG;
+    private javax.swing.JTextField jText_PhilHealth;
+    private javax.swing.JTextField jText_SSS;
+    private javax.swing.JTextField jText_TIN;
     // End of variables declaration//GEN-END:variables
 }

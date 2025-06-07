@@ -1,22 +1,37 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package motorph_sytaxsippers_ps;
 
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Locale;
 import javax.swing.JOptionPane;
+import static motorph_sytaxsippers_ps.OpenCSV_HashMapSearch.preprocessCSV;
+import static motorph_sytaxsippers_ps.OpenCSV_HashMapSearch.searchInDataAdmin;
 
-/**
- *
- * @author cj
- */
 public class AdminUserInterface_EmployeeDetails extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AdminUserInterface_EmployeeDetails
-     */
-    public AdminUserInterface_EmployeeDetails() {
+    public AdminUserInterface_EmployeeDetails(String empNumber, String empLastName, String empFirstName, String empSSS, String empPhilH, String empTIN, String empPAGIBIG) {
         initComponents();
+
+        //empNumber, empLastName, empFirstName,empSSS,empPhilH,empTIN,empPAGIBIG
+        jText_EmpNumber.setText(empNumber);
+        jText_LatName.setText(empLastName);
+        jText_Fname.setText(empFirstName);
+        jText_SSS.setText(empSSS);
+        jText_PhilHealth.setText(empPhilH);
+        jText_TIN.setText(empTIN);
+        jText_PAGIBIG.setText(empPAGIBIG);
+
+    }
+
+    private AdminUserInterface_EmployeeDetails() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -28,13 +43,37 @@ public class AdminUserInterface_EmployeeDetails extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLbl_Title = new javax.swing.JLabel();
+        jLbl_EmpNo = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLbl_Fname = new javax.swing.JLabel();
+        jLbl_SSSnum = new javax.swing.JLabel();
+        jLbl_PhilHealth = new javax.swing.JLabel();
+        jLbl_TIN = new javax.swing.JLabel();
+        jLbl_PagIbig = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jText_EmpNumber = new javax.swing.JTextField();
+        jText_LatName = new javax.swing.JTextField();
+        jText_Fname = new javax.swing.JTextField();
+        jText_SSS = new javax.swing.JTextField();
+        jText_PhilHealth = new javax.swing.JTextField();
+        jText_TIN = new javax.swing.JTextField();
+        jText_PAGIBIG = new javax.swing.JTextField();
+        jCbx_Month = new javax.swing.JComboBox<>();
+        jBtn_Compute = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jCbx_Month = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jText_TOtalHrsWrk = new javax.swing.JTextField();
+        jText_HourlyRate = new javax.swing.JTextField();
+        jText_MGI = new javax.swing.JTextField();
+        jText_PhilH = new javax.swing.JTextField();
+        jText_SSSDeduct = new javax.swing.JTextField();
+        jText_NetInc = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -44,70 +83,233 @@ public class AdminUserInterface_EmployeeDetails extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("EMPLOYEE DETAILS INFORMATION");
+        jLbl_Title.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLbl_Title.setText("EMPLOYEE DETAILS INFORMATION");
 
-        jLabel2.setText("EMPLOYEE NO:");
-
-        jCbx_Month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
-
-        jLabel3.setText("SELECT MONTH");
-
-        jButton1.setText("COMPUTE");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jLbl_EmpNo.setText("EMPLOYEE NO:");
 
         jLabel4.setText("EMPLOYEE LAST NAME: ");
 
-        jLabel5.setText("EMPLOYEE FIRST NAME: ");
+        jLbl_Fname.setText("EMPLOYEE FIRST NAME: ");
+
+        jLbl_SSSnum.setText("SSS NUMBER:");
+
+        jLbl_PhilHealth.setText("PHILHEALTH NUMBER:");
+
+        jLbl_TIN.setText("TIN NUMBER:");
+
+        jLbl_PagIbig.setText("PAGIBIG NUMBER:");
+
+        jLabel3.setText("SELECT MONTH");
+
+        jText_EmpNumber.setEditable(false);
+
+        jText_LatName.setEditable(false);
+
+        jText_Fname.setEditable(false);
+
+        jText_SSS.setEditable(false);
+
+        jText_PhilHealth.setEditable(false);
+
+        jText_TIN.setEditable(false);
+
+        jText_PAGIBIG.setEditable(false);
+
+        jCbx_Month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+
+        jBtn_Compute.setText("COMPUTE");
+        jBtn_Compute.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_ComputeActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("TOTAL HOURS WORK:");
+
+        jLabel2.setText("HOURLY RATES:");
+
+        jLabel6.setText("MOTHLY GROSS INCOME: ");
+
+        jLabel7.setText("NET INCOME:");
+
+        jLabel8.setText("PHILHEALTH:");
+
+        jLabel9.setText("DEDUCTIONS:");
+
+        jLabel10.setText("SSS:");
+
+        jText_TOtalHrsWrk.setEditable(false);
+        jText_TOtalHrsWrk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jText_TOtalHrsWrkActionPerformed(evt);
+            }
+        });
+
+        jText_HourlyRate.setEditable(false);
+        jText_HourlyRate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jText_HourlyRateActionPerformed(evt);
+            }
+        });
+
+        jText_MGI.setEditable(false);
+        jText_MGI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jText_MGIActionPerformed(evt);
+            }
+        });
+
+        jText_PhilH.setEditable(false);
+        jText_PhilH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jText_PhilHActionPerformed(evt);
+            }
+        });
+
+        jText_SSSDeduct.setEditable(false);
+        jText_SSSDeduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jText_SSSDeductActionPerformed(evt);
+            }
+        });
+
+        jText_NetInc.setEditable(false);
+        jText_NetInc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jText_NetIncActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(50, 50, 50)
+                .addComponent(jLbl_Title)
+                .addGap(75, 75, 75))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jBtn_Compute)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(189, 189, 189)
-                        .addComponent(jCbx_Month, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(321, 321, 321)
-                        .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 89, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(57, 57, 57))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLbl_TIN, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLbl_PagIbig, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLbl_EmpNo, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLbl_Fname, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLbl_SSSnum, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLbl_PhilHealth, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jText_SSS, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(jText_PhilHealth, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(jText_TIN, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(jText_PAGIBIG, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(jText_EmpNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(jText_LatName, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(jText_Fname, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addComponent(jCbx_Month, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jText_TOtalHrsWrk, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                    .addComponent(jText_HourlyRate)
+                    .addComponent(jText_MGI)
+                    .addComponent(jText_PhilH, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jText_SSSDeduct)
+                    .addComponent(jText_NetInc))
+                .addGap(0, 38, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jText_EmpNumber, jText_Fname, jText_LatName, jText_PAGIBIG, jText_PhilHealth, jText_SSS, jText_TIN});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel1)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
-                .addGap(52, 52, 52)
-                .addComponent(jLabel3)
-                .addGap(15, 15, 15)
-                .addComponent(jCbx_Month, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(jButton1)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLbl_Title)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLbl_EmpNo)
+                            .addComponent(jText_EmpNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jText_LatName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLbl_Fname)
+                            .addComponent(jText_Fname)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jText_TOtalHrsWrk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jText_HourlyRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jText_MGI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jText_SSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLbl_SSSnum))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(2, 2, 2)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jText_PhilHealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLbl_PhilHealth))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jText_PhilH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLbl_TIN)
+                    .addComponent(jText_TIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10)
+                    .addComponent(jText_SSSDeduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLbl_PagIbig)
+                    .addComponent(jText_PAGIBIG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCbx_Month, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addComponent(jBtn_Compute))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jText_NetInc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jText_EmpNumber, jText_Fname, jText_LatName, jText_PAGIBIG, jText_PhilHealth, jText_SSS, jText_TIN});
 
         pack();
         setLocationRelativeTo(null);
@@ -115,15 +317,143 @@ public class AdminUserInterface_EmployeeDetails extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        
-                    JOptionPane.showMessageDialog(this,   "Plecascing.", "Selection Required", JOptionPane.WARNING_MESSAGE);
-         
-        
+
+        //   JOptionPane.showMessageDialog(this,   "Plecascing.", "Selection Required", JOptionPane.WARNING_MESSAGE);
+
     }//GEN-LAST:event_formWindowOpened
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jBtn_ComputeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_ComputeActionPerformed
+
+        String currentPath = System.getProperty("user.dir");
+        String csvFile = currentPath + File.separator + "resources" + File.separator + "MotorPHEmployeeData-EmployeeDetails.csv";
+        String csvAttFile = currentPath + File.separator + "resources" + File.separator + "MotorPH Employee Data-Attendance Record.csv";
+
+        // Link CSV data to HashMap
+        HashMap<String, String[]> csvData = null;
+        try {
+            csvData = preprocessCSV(csvFile);
+        } catch (CsvValidationException ex) {
+            JOptionPane.showMessageDialog(null, "Error processing CSV file.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Search for a specific username
+        String idNum = jText_EmpNumber.getText();
+        String[] result = searchInDataAdmin(csvData, idNum);
+
+        if (result != null) {
+            // user  found
+            //   JOptionPane.showMessageDialog(null, "User found: " + String.join(", ", result), "Success", JOptionPane.INFORMATION_MESSAGE);
+
+            //   String targetEmployeeId = jText_EmpNumber.getSelectedText();
+            String targetMonth = (String) jCbx_Month.getSelectedItem();
+
+            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("H:mm", Locale.ENGLISH);
+
+            double totalHours = 0.0;
+
+            try (CSVReader csvReader = new CSVReader(new FileReader(csvAttFile))) {
+                // Skip the header row
+                csvReader.readNext();
+
+                String[] data;
+                while ((data = csvReader.readNext()) != null) {
+                    String employeeId = data[0];
+                    String monthStr = data[3]; // Month is stored in string format (e.g., "June")
+                    String logIn = data[4];
+                    String logOut = data[5];
+
+                    DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+                    DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("MMMM");
+
+                    LocalDate date = LocalDate.parse(monthStr, inputFormatter);
+                    String formattedMonth = date.format(outputFormatter);
+
+                    // Filter by employee ID
+                    if (!employeeId.equals(idNum)) {
+
+                        continue;
+                    }
+
+                    //    System.out.printf( formattedMonth );
+                    if (!formattedMonth.equals(targetMonth)) {
+
+                        continue;
+                    }
+
+                    LocalTime inTime = LocalTime.parse(logIn, timeFormatter);
+                    LocalTime outTime = LocalTime.parse(logOut, timeFormatter);
+
+                    double hoursWorked = (double) java.time.Duration.between(inTime, outTime).toMinutes() / 60;
+                    totalHours += hoursWorked;
+                }
+
+                // Output the result
+                jText_TOtalHrsWrk.setText(String.valueOf(totalHours));
+                jText_HourlyRate.setText(result[18]);
+
+                //double HR = (double) result[18];
+                double HR = Double.parseDouble(result[18]);
+                double MGI = totalHours * HR;
+                jText_MGI.setText(String.format("%.2f", MGI));
+
+                
+
+                double PHLHCONTRI = (MGI * 0.03) / 2;
+                jText_PhilH.setText(String.format("%.2f", PHLHCONTRI));
+                
+                jText_SSSDeduct.setText("1125");
+                
+                double NetIncome = MGI - (PHLHCONTRI + 1125);
+                
+
+                       jText_NetInc.setText(String.format("%.2f", NetIncome));
+
+                // System.out.printf("Total work hours for Employee ID %s in %s: %.2f hours.%n", idNum, targetMonth, totalHours);
+            } catch (IOException | CsvValidationException e) {
+                System.err.println("Error reading the file: " + e.getMessage());
+            } catch (Exception e) {
+                System.err.println("Error processing the data: " + e.getMessage());
+            }
+
+//save this=-----------------------------
+            // JOptionPane.showMessageDialog(null, "Hourly Rate: " + result[18], "monthly nya to", JOptionPane.INFORMATION_MESSAGE);
+//--------------------------------------------
+            //monthy salary = total work houes  minus decustions =
+        }
+        else {
+            // Username not found
+
+            JOptionPane.showMessageDialog(null, "User not found.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+
+    }//GEN-LAST:event_jBtn_ComputeActionPerformed
+
+    private void jText_TOtalHrsWrkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_TOtalHrsWrkActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jText_TOtalHrsWrkActionPerformed
+
+    private void jText_HourlyRateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_HourlyRateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jText_HourlyRateActionPerformed
+
+    private void jText_MGIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_MGIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jText_MGIActionPerformed
+
+    private void jText_PhilHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_PhilHActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jText_PhilHActionPerformed
+
+    private void jText_SSSDeductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_SSSDeductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jText_SSSDeductActionPerformed
+
+    private void jText_NetIncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_NetIncActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jText_NetIncActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,12 +491,36 @@ public class AdminUserInterface_EmployeeDetails extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jBtn_Compute;
     private javax.swing.JComboBox<String> jCbx_Month;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLbl_EmpNo;
+    private javax.swing.JLabel jLbl_Fname;
+    private javax.swing.JLabel jLbl_PagIbig;
+    private javax.swing.JLabel jLbl_PhilHealth;
+    private javax.swing.JLabel jLbl_SSSnum;
+    private javax.swing.JLabel jLbl_TIN;
+    private javax.swing.JLabel jLbl_Title;
+    private javax.swing.JTextField jText_EmpNumber;
+    private javax.swing.JTextField jText_Fname;
+    private javax.swing.JTextField jText_HourlyRate;
+    private javax.swing.JTextField jText_LatName;
+    private javax.swing.JTextField jText_MGI;
+    private javax.swing.JTextField jText_NetInc;
+    private javax.swing.JTextField jText_PAGIBIG;
+    private javax.swing.JTextField jText_PhilH;
+    private javax.swing.JTextField jText_PhilHealth;
+    private javax.swing.JTextField jText_SSS;
+    private javax.swing.JTextField jText_SSSDeduct;
+    private javax.swing.JTextField jText_TIN;
+    private javax.swing.JTextField jText_TOtalHrsWrk;
     // End of variables declaration//GEN-END:variables
 }

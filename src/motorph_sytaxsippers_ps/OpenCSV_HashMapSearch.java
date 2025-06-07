@@ -76,6 +76,17 @@ public class OpenCSV_HashMapSearch {
     }
     
     
+    // Search in the preprocessed data
+public static String[] searchInDataAdmin(HashMap<String, String[]> dataMap, String idnum) {
+    if (dataMap.containsKey(idnum)) {
+        // Return the matching row as a String[]
+        return dataMap.get(idnum);
+    } else {
+        // Return null if no match is found
+        return null;
+    }
+}
+    
             public static String[] searchInDataNew(HashMap<String, String[]> dataMap, String searchUsername) {
             if (dataMap.containsKey(searchUsername)) {
                 return dataMap.get(searchUsername); // Return the user's row if found
