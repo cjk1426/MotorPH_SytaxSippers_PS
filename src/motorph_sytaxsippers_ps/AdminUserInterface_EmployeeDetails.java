@@ -86,9 +86,10 @@ public class AdminUserInterface_EmployeeDetails extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0, 80));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0, 160));
 
         jLbl_Title.setFont(new java.awt.Font("Sylfaen", 1, 24)); // NOI18N
+        jLbl_Title.setForeground(new java.awt.Color(255, 255, 255));
         jLbl_Title.setText("EMPLOYEE DETAILS INFORMATION");
 
         jLbl_EmpNo.setForeground(new java.awt.Color(255, 255, 255));

@@ -29,14 +29,16 @@ public class AdminUserInterface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jBtn_OpenEmpDetails = new javax.swing.JButton();
         jBtn_ShowAddEmp = new javax.swing.JButton();
         jBtn_Update = new javax.swing.JButton();
         jBtn_Delete = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -45,7 +47,61 @@ public class AdminUserInterface extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0, 100));
+
+        jLabel1.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 204, 102));
+        jLabel1.setText("EMPLOYEE PAYROLL ADMINISTRATOR");
+
+        jButton1.setBackground(new java.awt.Color(255, 204, 102));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("CLOSE");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jBtn_OpenEmpDetails.setBackground(new java.awt.Color(255, 204, 102));
+        jBtn_OpenEmpDetails.setForeground(new java.awt.Color(0, 0, 0));
+        jBtn_OpenEmpDetails.setText("VIEW EMPLOYEE");
+        jBtn_OpenEmpDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_OpenEmpDetailsActionPerformed(evt);
+            }
+        });
+
+        jBtn_ShowAddEmp.setBackground(new java.awt.Color(255, 204, 102));
+        jBtn_ShowAddEmp.setForeground(new java.awt.Color(0, 0, 0));
+        jBtn_ShowAddEmp.setText("ADD EMPLOYEE");
+        jBtn_ShowAddEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_ShowAddEmpActionPerformed(evt);
+            }
+        });
+
+        jBtn_Update.setBackground(new java.awt.Color(255, 204, 102));
+        jBtn_Update.setForeground(new java.awt.Color(0, 0, 0));
+        jBtn_Update.setText("UPDATE EMPLOYEE");
+        jBtn_Update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_UpdateActionPerformed(evt);
+            }
+        });
+
+        jBtn_Delete.setBackground(new java.awt.Color(255, 204, 102));
+        jBtn_Delete.setForeground(new java.awt.Color(0, 0, 0));
+        jBtn_Delete.setText("DELETE");
+        jBtn_Delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_DeleteActionPerformed(evt);
+            }
+        });
+
+        jTable1.setBackground(new java.awt.Color(248, 233, 200));
+        jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -58,84 +114,51 @@ public class AdminUserInterface extends javax.swing.JFrame {
         jTable1.setShowGrid(true);
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("EMPLOYEE PAYROLL ADMINISTRATOR");
-
-        jButton1.setText("CLOSE");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jBtn_OpenEmpDetails.setText("VIEW EMPLOYEE");
-        jBtn_OpenEmpDetails.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn_OpenEmpDetailsActionPerformed(evt);
-            }
-        });
-
-        jBtn_ShowAddEmp.setText("ADD EMPLOYEE");
-        jBtn_ShowAddEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn_ShowAddEmpActionPerformed(evt);
-            }
-        });
-
-        jBtn_Update.setText("UPDATE EMPLOYEE");
-        jBtn_Update.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn_UpdateActionPerformed(evt);
-            }
-        });
-
-        jBtn_Delete.setText("DELETE");
-        jBtn_Delete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn_DeleteActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jBtn_OpenEmpDetails)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBtn_ShowAddEmp)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jBtn_OpenEmpDetails)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jBtn_ShowAddEmp)
-                                .addGap(18, 18, 18)
-                                .addComponent(jBtn_Update)
-                                .addGap(18, 18, 18)
-                                .addComponent(jBtn_Delete)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1))
+                        .addComponent(jBtn_Update)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBtn_Delete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 3, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
                     .addComponent(jBtn_OpenEmpDetails)
                     .addComponent(jBtn_ShowAddEmp)
-                    .addComponent(jButton1)
                     .addComponent(jBtn_Update)
                     .addComponent(jBtn_Delete))
-                .addGap(49, 49, 49))
+                .addGap(25, 25, 25))
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 610));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/bg6.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 610));
 
         pack();
         setLocationRelativeTo(null);
@@ -215,8 +238,8 @@ public class AdminUserInterface extends javax.swing.JFrame {
         String empFirstName = (String) jTable1.getValueAt(selectedRow, 2); // First Name (Column 2)
         String empSSS = (String) jTable1.getValueAt(selectedRow, 3); //  SSS(Column 3)
         String empPhilH = (String) jTable1.getValueAt(selectedRow, 4); // PHILHEALTH(Column 4)
-        String empTIN = (String) jTable1.getValueAt(selectedRow, 4); // PHILHEALTH(Column 4)
-        String empPAGIBIG = (String) jTable1.getValueAt(selectedRow, 5); // PHILHEALTH(Column 4)
+        String empTIN = (String) jTable1.getValueAt(selectedRow, 5); // PHILHEALTH(Column 4)
+        String empPAGIBIG = (String) jTable1.getValueAt(selectedRow, 6); // PHILHEALTH(Column 4)
 
         // Open GUI employee full details as a modal lang muna like VBA
         //     AdminUserInterface_EmployeeDetails adminEmpDetails = new AdminUserInterface_EmployeeDetails();
@@ -295,8 +318,8 @@ public class AdminUserInterface extends javax.swing.JFrame {
         String empFirstName = (String) jTable1.getValueAt(selectedRow, 2); // First Name (Column 2)
         String empSSS = (String) jTable1.getValueAt(selectedRow, 3); //  SSS(Column 3)
         String empPhilH = (String) jTable1.getValueAt(selectedRow, 4); // PHILHEALTH(Column 4)
-        String empTIN = (String) jTable1.getValueAt(selectedRow, 4); // PHILHEALTH(Column 4)
-        String empPAGIBIG = (String) jTable1.getValueAt(selectedRow, 5); // PHILHEALTH(Column 4)
+        String empTIN = (String) jTable1.getValueAt(selectedRow, 5); // PHILHEALTH(Column 4)
+        String empPAGIBIG = (String) jTable1.getValueAt(selectedRow, 6); // PHILHEALTH(Column 4)
         
         
                 // Open GUI employee full details as a modal lang muna like VBA
@@ -468,6 +491,8 @@ public class AdminUserInterface extends javax.swing.JFrame {
     private javax.swing.JButton jBtn_Update;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
