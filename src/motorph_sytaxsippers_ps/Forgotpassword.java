@@ -1,5 +1,13 @@
 package motorph_sytaxsippers_ps;
 
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import javax.swing.JOptionPane;
+
 public class Forgotpassword extends javax.swing.JFrame {
 
     /**
@@ -15,8 +23,8 @@ public class Forgotpassword extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
+        submitButton = new javax.swing.JButton();
+        txtEmail = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -34,10 +42,15 @@ public class Forgotpassword extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Email:");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setText("Submit");
+        submitButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        submitButton.setText("Submit");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -45,11 +58,11 @@ public class Forgotpassword extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(321, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(submitButton)
                 .addGap(28, 28, 28))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField2)
+                .addComponent(txtEmail)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
@@ -62,9 +75,9 @@ public class Forgotpassword extends javax.swing.JFrame {
                 .addContainerGap(36, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(submitButton)
                 .addGap(17, 17, 17))
         );
 
@@ -87,6 +100,73 @@ public class Forgotpassword extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowClosed
 
+    
+    private HashMap<String, String[]> preprocessCSV(String csvFile) throws CsvValidationException, IOException {
+        HashMap<String, String[]> csvData = new HashMap<>();
+
+        try (CSVReader reader = new CSVReader(new FileReader(csvFile))) {
+            // String[] header = reader.readNext(); // Read the header
+            String[] nextLine;
+
+            while ((nextLine = reader.readNext()) != null) {
+                if (nextLine.length > 0) {
+                    String email = nextLine[4]; // Assuming the first column is the email
+                    csvData.put(email, nextLine); // Map email to the full row
+                }
+            }
+        }
+
+        return csvData;
+    }
+
+    private String[] searchInData(HashMap<String, String[]> csvData, String searchEmail) {
+        if (csvData.containsKey(searchEmail)) {
+            return csvData.get(searchEmail); // Return the user's row if found
+        }
+        return null; // Return null if the username is not found
+    }
+    
+    
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        String email = txtEmail.getText();
+        String currentPath = System.getProperty("user.dir");
+        String csvFile = currentPath + File.separator + "resources" + File.separator + "CredentialDetails.csv";
+        
+        HashMap<String, String[]> csvData = null;
+        try {
+            csvData = preprocessCSV(csvFile);
+        } catch (CsvValidationException | IOException ex) {
+            JOptionPane.showMessageDialog(null, "Error processing CSV file.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if (email.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter your email.");
+            return;
+        }
+        
+        // Search for a specific email
+        String searchEmail = txtEmail.getText();
+        String[] result = searchInData(csvData, searchEmail);
+
+        if (result != null) {
+            // Email found
+            JOptionPane.showMessageDialog(null, "User found: " + searchEmail, "Success", JOptionPane.INFORMATION_MESSAGE);
+
+            ResetPassword resetPass = new ResetPassword();
+            resetPass.setVisible(true);
+            
+            
+        }
+        else {
+            // Email not found
+
+            JOptionPane.showMessageDialog(null, "User not found.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+    }//GEN-LAST:event_submitButtonActionPerformed
+
+   
     /**
      * @param args the command line arguments
      */
@@ -123,10 +203,10 @@ public class Forgotpassword extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton submitButton;
+    private javax.swing.JTextField txtEmail;
     // End of variables declaration//GEN-END:variables
 }

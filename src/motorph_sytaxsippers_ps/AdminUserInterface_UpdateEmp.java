@@ -73,21 +73,29 @@ public class AdminUserInterface_UpdateEmp extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0, 80));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Sitka Text", 1, 26)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("UPDATE EMPLOYEE INFORMATION");
 
+        jLbl_EmpNo.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         jLbl_EmpNo.setText("EMPLOYEE NO:");
 
+        jLabel4.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         jLabel4.setText("EMPLOYEE LAST NAME: ");
 
+        jLbl_Fname.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         jLbl_Fname.setText("EMPLOYEE FIRST NAME: ");
 
+        jLbl_SSSnum.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         jLbl_SSSnum.setText("SSS NUMBER:");
 
+        jLbl_PhilHealth.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         jLbl_PhilHealth.setText("PHILHEALTH NUMBER:");
 
+        jLbl_TIN.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         jLbl_TIN.setText("TIN NUMBER:");
 
+        jLbl_PagIbig.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         jLbl_PagIbig.setText("PAGIBIG NUMBER:");
 
         jText_EmpNumber.setEditable(false);
@@ -95,6 +103,12 @@ public class AdminUserInterface_UpdateEmp extends javax.swing.JFrame {
         jText_Fname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jText_FnameActionPerformed(evt);
+            }
+        });
+
+        jText_PhilHealth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jText_PhilHealthActionPerformed(evt);
             }
         });
 
@@ -110,38 +124,46 @@ public class AdminUserInterface_UpdateEmp extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLbl_Fname)
-                            .addComponent(jLabel4)
-                            .addComponent(jLbl_EmpNo)
-                            .addComponent(jLbl_SSSnum)
-                            .addComponent(jLbl_PhilHealth)
-                            .addComponent(jLbl_TIN)
-                            .addComponent(jLbl_PagIbig))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jText_EmpNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jText_LatName, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jText_Fname, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jText_SSS, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jText_PhilHealth, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jText_TIN, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jText_PAGIBIG, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBtn_Update)))
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel1)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jText_LatName, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLbl_PagIbig)
+                                    .addComponent(jLbl_EmpNo)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLbl_Fname)
+                                    .addComponent(jLbl_SSSnum)
+                                    .addComponent(jLbl_PhilHealth)
+                                    .addComponent(jLbl_TIN))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(28, 28, 28)
+                                        .addComponent(jText_EmpNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jText_Fname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jText_SSS, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jText_PhilHealth, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jText_TIN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jText_PAGIBIG, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(jBtn_Update)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLbl_EmpNo)
                     .addComponent(jText_EmpNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -169,14 +191,14 @@ public class AdminUserInterface_UpdateEmp extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLbl_PagIbig)
                     .addComponent(jText_PAGIBIG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(29, 29, 29)
                 .addComponent(jBtn_Update)
-                .addGap(41, 41, 41))
+                .addGap(40, 40, 40))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 480));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/bg1.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/bg4.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 480));
 
         pack();
@@ -216,6 +238,10 @@ public class AdminUserInterface_UpdateEmp extends javax.swing.JFrame {
     private void jText_FnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_FnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jText_FnameActionPerformed
+
+    private void jText_PhilHealthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_PhilHealthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jText_PhilHealthActionPerformed
 
     /**
      * @param args the command line arguments
