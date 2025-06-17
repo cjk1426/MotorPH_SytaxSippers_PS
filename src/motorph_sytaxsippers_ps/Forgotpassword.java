@@ -2,9 +2,7 @@ package motorph_sytaxsippers_ps;
 
 public class Forgotpassword extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Forgotpassword
-     */
+
     public Forgotpassword() {
         initComponents();
     }
@@ -36,6 +34,11 @@ public class Forgotpassword extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton1.setText("Submit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
@@ -86,6 +89,13 @@ public class Forgotpassword extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_formWindowClosed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        //will send an OTP to reset the password
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

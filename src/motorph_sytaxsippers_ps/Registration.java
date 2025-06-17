@@ -12,7 +12,7 @@ public class Registration extends javax.swing.JFrame {
 
     public Registration() {
         initComponents();
-        scaleImage();
+     //   scaleImage();
     }
 
     @SuppressWarnings("unchecked")
@@ -350,15 +350,15 @@ private String hashPassword(String password) {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxt_NameActionPerformed
 
-    public void scaleImage() {
-        ImageIcon icon = new ImageIcon ("C:\\Users\\admin\\Downloads\\Logo1-removebg-preview.png");
-        Image img = icon.getImage();
-        Image imgScale = img.getScaledInstance(jLabel8.getWidth(), jLabel8.getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(imgScale);
-        jLabel8.setIcon(scaledIcon);
-        
-        
-    }
+//    public void scaleImage() {
+//        ImageIcon icon = new ImageIcon ("C:\\Users\\admin\\Downloads\\Logo1-removebg-preview.png");
+//        Image img = icon.getImage();
+//        Image imgScale = img.getScaledInstance(jLabel8.getWidth(), jLabel8.getHeight(), Image.SCALE_SMOOTH);
+//        ImageIcon scaledIcon = new ImageIcon(imgScale);
+//        jLabel8.setIcon(scaledIcon);
+//        
+//        
+//    }
     /**
      * @param args the command line arguments
      */
