@@ -8,6 +8,8 @@ import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -224,12 +226,18 @@ public class UserLogin extends javax.swing.JFrame {
         // Search for a specific username
         String searchUsername = jTextField1.getText();
         String[] result = searchInData(csvData, searchUsername);
-
+        String userInputPw = jPasswordField1.getText();
         if (result != null) {
-            // Username found
-            JOptionPane.showMessageDialog(null, "User found: " + String.join(", ", result), "Success", JOptionPane.INFORMATION_MESSAGE);
+    // Username found
+  //  JOptionPane.showMessageDialog(null, "User found: " + String.join(", ", result[1]), "Success", JOptionPane.INFORMATION_MESSAGE);
 
-            JOptionPane.showMessageDialog(null, "User found: " + result[1], "Success", JOptionPane.INFORMATION_MESSAGE);
+    boolean isMatch = verifyPassword(userInputPw, result[1]); // Compare user input with stored password
+    System.out.println("Password Match: " + isMatch);
+
+    if (!isMatch) { // Check if the password doesn't match
+        JOptionPane.showMessageDialog(null, "Invalid password input", "Error", JOptionPane.ERROR_MESSAGE);
+        return; // Exit the function early if the password is invalid
+    }
 
         }
         else {
@@ -259,6 +267,29 @@ public class UserLogin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+        // Hash the password
+    private String hashPassword(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hashBytes = md.digest(password.getBytes());
+            StringBuilder hashString = new StringBuilder();
+            for (byte b : hashBytes) {
+                hashString.append(String.format("%02x", b));
+            }
+            return hashString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            return null;
+        }
+    }
+
+    // Verify the password
+    public boolean verifyPassword(String inputPassword, String storedHash) {
+        String hashedInput = hashPassword(inputPassword);
+        return hashedInput != null && hashedInput.equals(storedHash);
+    }
+    
+    
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
         // show registration UI
