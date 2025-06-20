@@ -78,24 +78,31 @@ public class AdminUserInterface_UpdateEmp extends javax.swing.JFrame {
         jLabel1.setText("UPDATE EMPLOYEE INFORMATION");
 
         jLbl_EmpNo.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
+        jLbl_EmpNo.setForeground(new java.awt.Color(255, 255, 255));
         jLbl_EmpNo.setText("EMPLOYEE NO:");
 
         jLabel4.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("EMPLOYEE LAST NAME: ");
 
         jLbl_Fname.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
+        jLbl_Fname.setForeground(new java.awt.Color(255, 255, 255));
         jLbl_Fname.setText("EMPLOYEE FIRST NAME: ");
 
         jLbl_SSSnum.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
+        jLbl_SSSnum.setForeground(new java.awt.Color(255, 255, 255));
         jLbl_SSSnum.setText("SSS NUMBER:");
 
         jLbl_PhilHealth.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
+        jLbl_PhilHealth.setForeground(new java.awt.Color(255, 255, 255));
         jLbl_PhilHealth.setText("PHILHEALTH NUMBER:");
 
         jLbl_TIN.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
+        jLbl_TIN.setForeground(new java.awt.Color(255, 255, 255));
         jLbl_TIN.setText("TIN NUMBER:");
 
         jLbl_PagIbig.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
+        jLbl_PagIbig.setForeground(new java.awt.Color(255, 255, 255));
         jLbl_PagIbig.setText("PAGIBIG NUMBER:");
 
         jText_EmpNumber.setEditable(false);
